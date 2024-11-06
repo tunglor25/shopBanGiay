@@ -1,0 +1,428 @@
+* {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    /* Mặc định là 16px cho body */
+}
+::-webkit-scrollbar {
+    display: none; /* Ẩn thanh cuộn */
+    }
+
+body {
+    margin: 0 auto;
+}
+
+header {
+    position: sticky;
+    /* Đặt navbar cố định */
+    margin-bottom: 10px;
+    height: 60px;
+    width: 100%;
+    /* Chiếm toàn bộ chiều ngang */
+    z-index: 10;
+    /* Cao nhất */
+}
+
+
+.slider {
+    height: 500px;
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+main {
+    padding: 20px;
+}
+
+#newsletter {
+    background-color: #f4f4f4;
+    padding: 30px;
+    /* Tăng padding để làm cho bản tin rộng hơn */
+    text-align: center;
+    font-size: 18px;
+    /* Tăng cỡ chữ cho nội dung */
+}
+
+.news-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 30px;
+    /* Tăng khoảng cách giữa các mẩu tin */
+}
+
+.news-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 15px;
+    /* Tăng padding để mẩu tin có nhiều không gian hơn */
+    border-radius: 5px;
+    width: 350px;
+    /* Tăng độ rộng cho mỗi mẩu tin */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Đổ bóng mạnh hơn */
+}
+
+.news-item.large {
+    width: 500px;
+    /* Độ rộng lớn hơn cho mẩu tin bên trái */
+}
+
+.news-item.large img {
+    height: 80%;
+}
+
+.news-item img {
+    width: 100%;
+    /* Để hình ảnh chiếm toàn bộ khung */
+    height: auto;
+    /* Tự động điều chỉnh chiều cao */
+    border-radius: 5px;
+}
+
+.news-item h4 {
+    margin: 10px 0 5px 0;
+    /* Khoảng cách giữa tiêu đề và mô tả */
+    font-size: 18px;
+    /* Tăng cỡ chữ cho tiêu đề */
+}
+
+.news-item p {
+    color: #666;
+    /* Màu chữ cho mô tả */
+    font-size: 12px;
+    /* Tăng cỡ chữ cho mô tả */
+}
+
+#featured-products {
+    padding: 20px;
+    text-align: center;
+    background-color: #eaeaea;
+    /* Thêm màu nền để làm nổi bật */
+    border-radius: 5px;
+    margin: 20px;
+    /* Thêm margin để tạo khoảng cách xung quanh */
+
+}
+
+.display-featured-products {
+    display: flex;
+    justify-content: center;
+}
+
+#sidebar {
+    display: block;
+    width: 250px;
+    justify-content: center;
+
+}
+
+#sidebar h2 {
+    font-size: 16px;
+}
+
+#sidebar li {
+
+    list-style: none;
+
+}
+
+#sidebar a {
+    text-decoration: none;
+    color: #2a2a2a;
+
+
+}
+
+#sidebar img {
+    width: 50px;
+}
+
+#sidebar ul {
+    list-style-type: none;
+    /* Bỏ dấu đầu dòng */
+    padding: 0;
+    /* Bỏ padding */
+}
+
+#sidebar ul li {
+    display: flex;
+    /* Hiển thị các mục menu theo chiều ngang */
+    align-items: center;
+    /* Căn giữa dọc */
+    margin: 5px 0;
+    /* Khoảng cách giữa các mục menu */
+}
+
+.category-image {
+    width: 30px;
+    /* Độ rộng của ảnh */
+    height: 30px;
+    /* Độ cao của ảnh */
+    margin-right: 10px;
+    /* Khoảng cách bên phải của ảnh */
+}
+
+.product-container {
+    display: grid;
+    /* Sử dụng grid để dễ dàng quản lý bố cục */
+    grid-template-columns: repeat(3, 0fr);
+    /* 3 cột */
+    gap: 0;
+    /* Đặt khoảng cách giữa các sản phẩm là 0 */
+    align-items: center;
+    justify-content: center;
+
+}
+
+.product {
+    border: 1px solid #ddd;
+    padding: 10px;
+    /* Giảm padding để sản phẩm nhỏ hơn */
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* Hiệu ứng chuyển đổi */
+    overflow: hidden;
+    /* Để các nút không ra ngoài khung */
+    height: 320px;
+    /* Thiết lập chiều cao cố định */
+    width: 100%;
+    /* Đảm bảo sản phẩm chiếm toàn bộ chiều rộng của cột */
+    box-sizing: border-box;
+    /* Đảm bảo padding và border không làm tăng kích thước */
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    /* Nâng sản phẩm lên khi hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Đổ bóng mạnh hơn khi hover */
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    transition: transform 0.3s;
+    /* Hiệu ứng cho hình ảnh */
+}
+
+.product:hover img {
+    transform: scale(1.05);
+    /* Co hình ảnh lên khi hover */
+}
+
+.product h3 {
+    margin: 10px 0 5px;
+    /* Thay đổi khoảng cách dưới cùng */
+    font-size: 30px;
+}
+
+.product p {
+    color: #666;
+    margin: 5px 0;
+    /* Đặt margin cho mô tả để tạo khoảng cách */
+}
+
+.buttons {
+    display: flex;
+    /* Hiện các nút theo chiều ngang */
+    justify-content: center;
+    /* Căn giữa các nút */
+    gap: 10px;
+    /* Khoảng cách giữa các nút */
+    margin-top: 10px;
+    /* Khoảng cách giữa thông tin và nút */
+    opacity: 0;
+    /* Ẩn các nút mặc định */
+    transition: opacity 0.3s;
+    /* Hiệu ứng chuyển đổi cho độ mờ */
+}
+
+.product:hover .buttons {
+    opacity: 1;
+    /* Hiện các nút khi hover */
+}
+
+.add-to-cart,
+.buy-now {
+    background-color: #333;
+    /* Màu nền cho nút */
+    color: white;
+    border: none;
+    padding: 8px;
+    /* Giảm padding cho nút */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    /* Cỡ chữ nhỏ hơn cho các nút */
+    transition: background-color 0.3s;
+    /* Hiệu ứng chuyển đổi màu nền */
+}
+
+.add-to-cart:hover,
+.buy-now:hover {
+    background-color: #555;
+    /* Màu nền khi hover */
+}
+
+
+
+#display-products {
+    padding: 20px;
+    text-align: center;
+}
+
+.display-product-container {
+    display: grid;
+    /* Sử dụng grid để dễ dàng quản lý bố cục */
+    grid-template-columns: repeat(4, 0fr);
+    /* 4 cột */
+    gap: 20px;
+    /* Khoảng cách giữa các sản phẩm */
+    justify-content: center;
+}
+
+.display-product {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* Hiệu ứng chuyển đổi */
+    text-align: left;
+    /* Căn trái nội dung */
+    padding: 10px;
+    /* Padding cho sản phẩm */
+    background-color: white;
+    /* Màu nền cho sản phẩm */
+    position: relative;
+    /* Để các nút có thể được căn chỉnh tuyệt đối */
+}
+
+.display-product:hover {
+    transform: translateY(-5px);
+    /* Nâng sản phẩm lên khi hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    /* Đổ bóng mạnh hơn khi hover */
+}
+
+.display-product img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    transition: transform 0.3s;
+    /* Hiệu ứng cho hình ảnh */
+}
+
+.display-product:hover img {
+    transform: scale(1.05);
+    /* Co hình ảnh lên khi hover */
+}
+
+.display-product h4 {
+    margin: 10px 0 5px;
+    /* Khoảng cách giữa tiêu đề và mô tả */
+    font-size: 20px;
+    /* Cỡ chữ cho tiêu đề */
+}
+
+.display-product p {
+    color: #666;
+    margin: 5px 0;
+    /* Khoảng cách giữa mô tả và nút */
+
+}
+
+.buttons {
+    display: flex;
+    /* Hiện các nút theo chiều ngang */
+    justify-content: center;
+    /* Căn giữa các nút */
+    gap: 10px;
+    /* Khoảng cách giữa các nút */
+    margin-top: 10px;
+    /* Khoảng cách giữa thông tin và nút */
+    opacity: 0;
+    /* Ẩn các nút mặc định */
+    transition: opacity 0.3s;
+    /* Hiệu ứng chuyển đổi cho độ mờ */
+}
+
+/* Hiệu ứng nút giống như trong sản phẩm nổi bật */
+.add-to-cart,
+.buy-now {
+    background-color: #333;
+    /* Màu nền cho nút */
+    color: white;
+    border: none;
+    padding: 8px;
+    /* Giảm padding cho nút */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    /* Cỡ chữ nhỏ hơn cho các nút */
+    transition: background-color 0.3s;
+    /* Hiệu ứng chuyển đổi màu nền */
+}
+
+.display-product:hover {
+    transform: translateY(-5px);
+    /* Nâng sản phẩm lên khi hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    /* Đổ bóng mạnh hơn khi hover */
+}
+
+.display-product:hover .buttons {
+    opacity: 1;
+    /* Hiện nút khi hover vào sản phẩm */
+}
+
+.add-to-cart,
+.buy-now {
+    background-color: #333;
+    /* Màu nền cho nút */
+    color: white;
+    border: none;
+    padding: 8px;
+    /* Giảm padding cho nút */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    /* Cỡ chữ nhỏ hơn cho các nút */
+    transition: background-color 0.3s;
+    /* Hiệu ứng chuyển đổi màu nền */
+}
+
+.add-to-cart:hover,
+.buy-now:hover {
+    background-color: #555;
+    /* Màu nền khi hover */
+}
+
+
+.product,
+.display-product {
+    display: inline-block;
+    margin: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 200px;
+}
+
+h2,
+h3,
+h4 {
+    color: #333;
+    font-size: 36px;
+    /* Cỡ chữ cho h2, h3, h4 */
+}
