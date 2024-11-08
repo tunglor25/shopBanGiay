@@ -73,6 +73,16 @@
                 <input type="number" name="views" id="views" class="form-control" value="<?= htmlspecialchars($DanhSachOne->views) ?>">
                 <div class="text-danger"><?= htmlspecialchars($loi_views) ?></div>
             </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Nhập phân loại giày</label>
+                <select class="form-select" id="category" name="category">
+                    <option value="" disabled <?= empty($DanhSachOne->category) ? 'selected' : '' ?>>Choose...</option>
+                    <option value="Giày nam" <?= isset($DanhSachOne) && $DanhSachOne->category == 'Giày nam' ? 'selected' : '' ?>>Giày nam</option>
+                    <option value="Giày nữ" <?= isset($DanhSachOne) && $DanhSachOne->category == 'Giày nữ' ? 'selected' : '' ?>>Giày nữ</option>
+                    <option value="Giày trẻ em" <?= isset($DanhSachOne) && $DanhSachOne->category == 'Giày trẻ em' ? 'selected' : '' ?>>Giày trẻ em</option>
+                </select>
+                <div class="text-danger"><?= htmlspecialchars($loi_category) ?></div>
+            </div>
 
 
 

@@ -8,6 +8,7 @@ class Product
     public $stock;
     public $img;
     public $views;
+    public $category;
 
     public function __construct() {}
     public function __destruct() {}

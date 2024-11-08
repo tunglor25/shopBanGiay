@@ -15,12 +15,19 @@ include_once "model/ProductQuery.php";
 $act = "";
 if (isset($_GET["act"])) {
     $act = $_GET["act"];
+    //echo $act . "<br>";
 }
 
 // 2.2. Lấy giá trị "id" từ đường dẫn url
 $id = "";
 if (isset($_GET["id"])) {
     $id = $_GET["id"];
+    //echo $id . "<br>";
+}
+$category = "";
+if (isset($_GET["category"])) {
+    $category = $_GET["category"];
+    //echo $category . "<br>";
 }
 
 
@@ -43,10 +50,10 @@ switch ($act) {
         $productCtrl->showCreate();
         break;
 
-    case "product-detail":
+    case "product-category":
         // Hiển thị trang chi tiết và xử lý logic
         $productCtrl = new ProductController();
-        $productCtrl->showDetail($id);
+        $productCtrl->showCategory($category);
         break;
 
     case "product-update":

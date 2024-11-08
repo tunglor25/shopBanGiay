@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,16 +14,13 @@
             border-radius: 0.375rem;
             background-color: #f8f9fa;
         }
-
         .form-input,
         .form-select {
             width: 100%;
         }
-
         .text-danger {
             color: red;
         }
-
         .text-success {
             color: green;
         }
@@ -41,13 +37,13 @@
 
             <div class="mb-3">
                 <label for="name" class="form-label">Nhập tên giày</label>
-                <input type="text" name="name" id="name" class="form-control">
+                <input type="text" name="name" id="name" class="form-control" value="<?= htmlspecialchars($product->name ?? '') ?>">
                 <div class="text-danger"><?= htmlspecialchars($loi_ten) ?></div>
             </div>
 
             <div class="mb-3">
                 <label for="price" class="form-label">Nhập giá giày</label>
-                <input type="text" name="price" id="price" class="form-control">
+                <input type="text" name="price" id="price" class="form-control" value="<?= htmlspecialchars($product->price ?? '') ?>">
                 <div class="text-danger"><?= htmlspecialchars($loi_price) ?></div>
             </div>
 
@@ -59,22 +55,32 @@
 
             <div class="mb-3">
                 <label for="description" class="form-label">Nhập miêu tả giày</label>
-                <input type="text" name="description" id="description" class="form-control">
+                <input type="text" name="description" id="description" class="form-control" value="<?= htmlspecialchars($product->description ?? '') ?>">
                 <div class="text-danger"><?= htmlspecialchars($loi_description) ?></div>
             </div>
 
             <div class="mb-3">
                 <label for="stock" class="form-label">Nhập số lượng giày</label>
-                <input type="number" name="stock" id="stock" class="form-control">
+                <input type="number" name="stock" id="stock" class="form-control" value="<?= htmlspecialchars($product->stock ?? '') ?>">
                 <div class="text-danger"><?= htmlspecialchars($loi_stock) ?></div>
             </div>
+
             <div class="mb-3">
                 <label for="views" class="form-label">Nhập số lượng xem giày</label>
-                <input type="number" name="views" id="views" class="form-control">
+                <input type="number" name="views" id="views" class="form-control" value="<?= htmlspecialchars($product->views ?? '') ?>">
                 <div class="text-danger"><?= htmlspecialchars($loi_views) ?></div>
             </div>
 
-
+            <div class="mb-3">
+                <label for="category" class="form-label">Nhập phân loại giày</label>
+                <select class="form-select" id="category" name="category">
+                    <option value="" disabled <?= empty($product->category) ? 'selected' : '' ?>>Choose...</option>
+                    <option value="Giày nam" <?= (isset($product->category) && $product->category == "Giày nam") ? 'selected' : '' ?>>Giày nam</option>
+                    <option value="Giày nữ" <?= (isset($product->category) && $product->category == "Giày nữ") ? 'selected' : '' ?>>Giày nữ</option>
+                    <option value="Giày trẻ em" <?= (isset($product->category) && $product->category == "Giày trẻ em") ? 'selected' : '' ?>>Giày trẻ em</option>
+                </select>
+                <div class="text-danger"><?= htmlspecialchars($loi_category) ?></div>
+            </div>
 
             <div class="text-center">
                 <button type="submit" name="submitForm" class="btn btn-success">Lưu lại</button>
@@ -82,10 +88,5 @@
             </div>
         </form>
     </div>
-
-    <footer>
-
-    </footer>
 </body>
-
 </html>

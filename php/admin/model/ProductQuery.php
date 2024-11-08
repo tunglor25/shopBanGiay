@@ -36,6 +36,7 @@ class ProductQuery
                 $product->stock = $value["stock"];
                 $product->img = $value["img"];
                 $product->views = $value["views"];
+                $product->category = $value["category"];
                 array_push($danhSach, $product);
             }
             return $danhSach;
@@ -61,6 +62,7 @@ class ProductQuery
                 $product->stock = $data["stock"];
                 $product->img = $data["img"];
                 $product->views = $data["views"];
+                $product->category = $data["category"];
 
                 return $product;
             }
@@ -74,7 +76,7 @@ class ProductQuery
     public function insert(Product $product)
     {
         try {
-            $sql = "INSERT INTO `products`( `name`, `price`, `img`, `description`, `stock`, `views`) VALUES ('" . $product->name . "','" . $product->price . "','" . $product->img . "','" . $product->description . "','" . $product->stock . "','" . $product->views . "')";
+            $sql = "INSERT INTO `products`( `name`, `price`, `img`, `description`, `stock`, `views`, `category`) VALUES ('" . $product->name . "','" . $product->price . "','" . $product->img . "','" . $product->description . "','" . $product->stock . "','" . $product->views . "','". $product->category. "')";
             $data = $this->pdo->exec($sql);
             if ($data == "1") {
                 return "ok";
@@ -95,7 +97,8 @@ class ProductQuery
                     `price` = '{$product->price}',
                     `stock` = '{$product->stock}',
                     `img` = '{$product->img}',
-                    `views` = '{$product->views}'
+                    `views` = '{$product->views}',
+                    `category` = '{$product->category}'
                     WHERE `product_id` = $id";
 
             $data = $this->pdo->exec($sql);
@@ -109,6 +112,34 @@ class ProductQuery
         }
     }
 
+    public function findCategory($category)
+    {
+        try {
+            $sql = "SELECT * FROM products WHERE category = :category";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':category', $category, PDO::PARAM_STR);
+            $stmt->execute();
+            $data = $stmt->fetchAll();
+            $danhSach = [];
+            foreach ($data as $value) {
+                $product = new Product();
+                $product->product_id = $value["product_id"];
+                $product->name = $value["name"];
+                $product->description = $value["description"];
+                $product->price = $value["price"];
+                $product->stock = $value["stock"];
+                $product->img = $value["img"];
+                $product->views = $value["views"];
+                $product->category = $value["category"];
+                array_push($danhSach, $product);
+            }
+            return $danhSach;
+        } catch (Exception $error) {
+            echo "Lỗi: " . $error->getMessage() . "<br>";
+            echo "Tìm phân lớp thất bại";
+        }
+    }
+    
 
     //xóa sản phẩm:
     public function delete($id)
