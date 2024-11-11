@@ -34,48 +34,40 @@ if (isset($_GET["category"])) {
 // 3. Kiểm tra giá trị act và gọi phương thức tương ứng
 switch ($act) {
     case "":
-        // Điều hướng sang trang mặc định (trang danh sách) nếu người dùng không truyền "act"
-        header("Location: ?act=product-list");
+        header("Location: ?act=client-list");
         break;
 
-    case "product-list":
-        // Hiển thị trang danh sách và xử lý logic
+    case "client-list":
         $productCtrl = new ProductController();
         $productCtrl->showList();
         break;
 
-    case "product-create":
-        // Hiển thị trang tạo mới và xử lý logic
+    case "client-create":
         $productCtrl = new ProductController();
         $productCtrl->showCreate();
         break;
 
-    case "product-category":
-        // Hiển thị trang chi tiết và xử lý logic
+    case "client-category":
         $productCtrl = new ProductController();
         $productCtrl->showCategory($category);
         break;
 
-    case "product-update":
-        // Hiển thị trang chỉnh sửa và xử lý logic
+    case "client-detail":
+        $productCtrl = new ProductController();
+        $productCtrl->showDetail($id);
+        break;
+
+    case "client-update":
         $productCtrl = new ProductController();
         $productCtrl->showUpdate($id);
         break;
 
-    case "product-delete":
-        // Hiện thị trang xóa và xử lý logic
+    case "client-delete":
         $productCtrl = new ProductController();
         $productCtrl->showDelete($id);
         break;
 
-    case "product-listusers":
-        // Hiển thị trang chi tiết và xử lý logic
-        $productCtrl = new ProductController();
-        $productCtrl->showUsers();
-        break;
-
     default:
-        // Hiển thị "trang 404 fage not found" nếu giá trị "act" không nằm trong danh sách phía trên.
         include "view/404.php";
         break;
 }

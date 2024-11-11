@@ -24,7 +24,16 @@ class ProductController
     {
         // Hiển thị file view tương ứng. Hiển thị file list.php
         $DanhSachobject = $this->productQuery->all();
-        include "view/product/list.php";
+        include "view/use/list.php";
+    }
+
+
+
+    public function showDetail($id)
+    {
+        $DanhSachOne = $this->productQuery->find($id);
+        include "view/use/detail.php";
+        
     }
 
     public function showDelete($product_id)
@@ -113,8 +122,11 @@ class ProductController
     // Lưu ý: Phải nhận vào param là $id muốn xem xem chi tiết
     public function showCategory($category)
     {
-        $DanhSachCtegory = $this->productQuery->findCategory($category);
-            include "view/product/category.php";
+        $category = $category;
+        
+        $DanhSachobject = $this->productQuery->all();
+        $DanhSachCategory = $this->productQuery->findCategory($category);
+            include "view/use/category.php";
         
     }
 
@@ -182,10 +194,5 @@ class ProductController
         } else {
             echo "Lỗi: Không nhận được thông tin ID. Mời bạn kiểm tra lại. <hr>";
         }
-    }
-
-    public function showUsers() {
-        $DanhSachUsers = $this->productQuery->all();
-        include "view/product/users.php";
     }
 }

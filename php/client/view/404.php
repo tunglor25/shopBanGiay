@@ -9,11 +9,12 @@
 
 <body>
     <!-- Tiêu đề trang -->
-    <h3>Trang web user (Trang danh cho người dùng sử dụng)</h3>
-    <a href="client"> click here</a>
-    <!-- Link điều hướng -->
+    <h3>404 Page Not Found</h3>
+
+
+    <!-- Khu vực link điều hướng -->
     <div>
-        Mời bạn truy cập trang quản trị. <a href="admin">Click here</a>
+        Đường dẫn không tồn tại. Mời bạn quay về trang chủ. <a href="?act=product-list">Click Here</a>
     </div>
 
 
