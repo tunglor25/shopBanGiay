@@ -112,9 +112,9 @@
                 <div class="mb-3" style="padding-bottom: 20px;">
                     <select class="form-select" id="category" name="category" style="height: 40px;">
                         <option value="" disabled <?= empty($product->category) ? 'selected' : '' ?> disabled>Phân loại</option>
-                        <option value="Giày nam" <?= (isset($product->category) && $product->category == "Giày nam") ? 'selected' : '' ?>>Giày nam</option>
-                        <option value="Giày nữ" <?= (isset($product->category) && $product->category == "Giày nữ") ? 'selected' : '' ?>>Giày nữ</option>
-                        <option value="Giày trẻ em" <?= (isset($product->category) && $product->category == "Giày trẻ em") ? 'selected' : '' ?>>Giày trẻ em</option>
+                        <option value="1"<?= (isset($product->category) && $product->category == "Giày nam") ? 'selected' : '' ?>>Giày nam</option>
+                        <option value="2" <?= (isset($product->category) && $product->category == "Giày nữ") ? 'selected' : '' ?>>Giày nữ</option>
+                        <option value="3" <?= (isset($product->category) && $product->category == "Giày trẻ em") ? 'selected' : '' ?>>Giày trẻ em</option>
                     </select>
                     <div class="text-danger"><?= htmlspecialchars($loi_category) ?></div>
                 </div>

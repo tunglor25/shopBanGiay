@@ -8,8 +8,15 @@ class Product
     public $stock;
     public $img;
     public $views;
-    public $category;
+    public $category_id;
 
     public function __construct() {}
     public function __destruct() {}
+}
+
+class categories
+{   
+    public $category_id;
+    public $name;
+    public $status;
 }

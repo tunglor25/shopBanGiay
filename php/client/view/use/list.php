@@ -49,15 +49,15 @@
                         <ul class="list-unstyled">
                             <li class="d-flex align-items-center mb-3">
                                 <img src="../../img/watch/watch3.jpg" alt="Giày Nam" class="category-image me-3 img-fluid" style="max-width: 50px;">
-                                <a href="#" class="text-decoration-none">Giày Nam</a>
+                                <a href="?act=client-category&category=Giày nam" class="text-decoration-none">Giày Nam</a>
                             </li>
                             <li class="d-flex align-items-center mb-3">
                                 <img src="../../img/shoes/lacoste/shoeL4.jpg" alt="Giày Nữ" class="category-image me-3 img-fluid" style="max-width: 50px;">
-                                <a href="#" class="text-decoration-none">Giày Nữ</a>
+                                <a href="?act=client-category&category=Giày nữ" class="text-decoration-none">Giày Nữ</a>
                             </li>
                             <li class="d-flex align-items-center mb-3">
                                 <img src="../../img/watch/watch5.jpg" alt="Giày Trẻ Em" class="category-image me-3 img-fluid" style="max-width: 50px;">
-                                <a href="#" class="text-decoration-none">Giày Trẻ Em</a>
+                                <a href="?act=client-category&category=Giày trẻ em" class="text-decoration-none">Giày Trẻ Em</a>
                             </li>
                             <li class="d-flex align-items-center mb-3">
                                 <img src="../../img/bags/bag2.webp" alt="Khuyến Mãi" class="category-image me-3 img-fluid" style="max-width: 50px;">

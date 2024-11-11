@@ -44,46 +44,24 @@ class ProductController
     // Khái báo phương thức showCreate() để xử lý trường hợp người dùng truy cập trang tạo mới
     public function showCreate()
     {
-        // Initialize variables
-        $loi_ten = "";
-        $loi_anh = "";
-        $loi_price = "";
-        $loi_description = "";
-        $loi_stock = "";
-        $loi_views = "";
-        $loi_category = "";
-        $baoThanhCong = "";
+        $loi_ten = $loi_anh = $loi_price = $loi_description = $loi_stock = $loi_views = $loi_category = $baoThanhCong = "";
     
         if (isset($_POST["submitForm"])) {
             $product = new Product();
-            
-            // Retrieve form data with isset check
             $product->name = $_POST["name"] ?? '';
             $product->stock = $_POST["stock"] ?? '';
             $product->price = $_POST["price"] ?? '';
             $product->description = $_POST["description"] ?? '';
             $product->views = $_POST["views"] ?? '';
-            $product->category = $_POST["category"] ?? '';
+            $product->category_id = $_POST["category"] ?? '';
     
             // Validation
-            if ($product->name === "") {
-                $loi_ten = "Hãy nhập tên giày đi!!";
-            }
-            if ($product->price === "") {
-                $loi_price = "Hãy nhập giá giày đi!!";
-            }
-            if ($product->description === "") {
-                $loi_description = "Hãy nhập mô tả giày đi!!";
-            }
-            if ($product->stock === "") {
-                $loi_stock = "Hãy nhập số lượng giày đi!!";
-            }
-            if ($product->views === "") {
-                $loi_views = "Hãy nhập lượt xem giày đi!!";
-            }
-            if ($product->category === "") {
-                $loi_category = "Hãy chọn phân loại giày đi!!";
-            }
+            if ($product->name === "") $loi_ten = "Hãy nhập tên giày đi!!";
+            if ($product->price === "") $loi_price = "Hãy nhập giá giày đi!!";
+            if ($product->description === "") $loi_description = "Hãy nhập mô tả giày đi!!";
+            if ($product->stock === "") $loi_stock = "Hãy nhập số lượng giày đi!!";
+            if ($product->views === "") $loi_views = "Hãy nhập lượt xem giày đi!!";
+            if ($product->category === "") $loi_category = "Hãy chọn phân loại giày đi!!";
     
             // File upload
             $thanSo01 = $_FILES['fileUpload']['tmp_name'];
@@ -97,10 +75,11 @@ class ProductController
     
             // If no errors, insert product
             if ($loi_ten === "" && $loi_anh === "" && $loi_price === "" && $loi_description === "" && $loi_stock === "" && $loi_views === "" && $loi_category === "") {
-                $baoThanhCong = "Bạn đã cập nhập ok";
+                $baoThanhCong = "Bạn đã cập nhật thành công";
                 $dataCreated = $this->productQuery->insert($product);
                 if ($dataCreated == "ok") {
-                    $product = new Product();
+                    header("Location: ?act=product-list");
+                    exit();
                 }
             }
         }
@@ -140,7 +119,7 @@ class ProductController
             $product->price = $_POST["price"];
             $product->description = $_POST["description"];
             $product->views = $_POST["views"];
-            $product->category=$_POST["category"];
+            $product->category_id=$_POST["category"];
 
             if ($_POST["name"] === "") {
                 $loi_ten = "Hãy nhập tên giày đi!!";
@@ -185,7 +164,7 @@ class ProductController
     }
 
     public function showUsers() {
-        $DanhSachUsers = $this->productQuery->all();
+        //$DanhSachUsers = $this->productQuery->allUser();
         include "view/product/users.php";
     }
 }
